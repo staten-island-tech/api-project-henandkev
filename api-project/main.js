@@ -1,6 +1,6 @@
 import "./style.css";
 
-const URL = "https://api.chess.com/pub/player/username";
+const URL = " https://api.chess.com/pub/titled/IM";
 async function getData(URL) {
   try {
     const response = await fetch(URL);
