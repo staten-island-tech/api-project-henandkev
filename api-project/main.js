@@ -1,14 +1,21 @@
 import "./style.css";
 
-const URL = " https://api.genshin.dev";
-async function getData(URL) {
+const URL = "https://api.chess.com/pub/player/hikaru";
+async function fetchData(URL) {
   try {
     const response = await fetch(URL);
     const data = await response.json();
-    document.getElementById("username").textContent = data.image;
+    document.getElementById("name").textContent = data.image;
     console.log(data);
   } catch (error) {
     console.log(error);
   }
 }
-getData(URL);
+fetchData(URL);
+
+const nameDOM = document.getElementById("name");
+const putQuoteInHTML = async () => {
+  const quote = await fetchData(URL);
+  nameDOM.innerHTML = `Quote: ${quote.name}`;
+};
+putQuoteInHTML();
