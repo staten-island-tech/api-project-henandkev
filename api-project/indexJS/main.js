@@ -1,18 +1,17 @@
 import { arrayData } from "./array.js";
 import { DOMSelectors } from "./dom";
 
-const questionMark = "/questionMark.png";
 function defaultCardGenerate(el) {
-  el.data.forEach((element) => {
-    if (element.data._id === null) {
-      if (element.data.icon != null) {
-        if (element.data.description != null) {
+  el.data.forEach((character) => {
+    if (character.data.name === null) {
+      if (character.data.icon != null) {
+        if (character.data.description != null) {
           DOMSelectors.cards.insertAdjacentHTML(
             "beforeend",
-            `<div class="card" id="${element.id}">
-    <h2 class="movieName">${element.data.name}</h2>
+            `<div class="card" id="${film.id}">
+    <h2 class="movieName">${film.data.name}</h2>
     <img
-      src="${element.data.imageURL}"
+      src="${film.data.imageURL}"
     />
     <div class="text">`
           );
@@ -27,48 +26,48 @@ arrayData.then((val) => {
   defaultCardGenerate(val);
 });
 function cardGenerate(el) {
-  el.data.forEach((element) => {
-    if (element.data.name == null) return;
-    const check = element.data.name.toLowerCase();
+  el.data.forEach((character) => {
+    if (character.data.name == null) return;
+    const check = character.data.name.toLowerCase();
     if (check == DOMSelectors.inputField.value.toLowerCase()) {
-      if (element.data.imageURL === null) {
+      if (character.data.imageURL === null) {
         DOMSelectors.cards.insertAdjacentHTML(
           "beforeend",
-          `<div class="card" id="${element.id}">
-      <h2 class="movieName">${element.data.name}</h2>
+          `<div class="card" id="${film.id}">
+      <h2 class="movieName">${film.data.name}</h2>
       <img
-        src="${questionMark}"
+        
       />
       <div class="text">`
         );
       } else {
         DOMSelectors.cards.insertAdjacentHTML(
           "beforeend",
-          `<div class="card" id="${element.id}">
-      <h2 class="movieName">${element.data.name}</h2>
+          `<div class="card" id="${film.id}">
+      <h2 class="movieName">${film.disney.name}</h2>
       <img
-        src="${questionMark}"
+        
       />`
         );
       }
     } else {
-      if (element.attributes.description === null) {
-        if (element.data.imageURL === null) {
+      if (character.attributes.description === null) {
+        if (character.data.imageURL === null) {
           DOMSelectors.cards.insertAdjacentHTML(
             "beforeend",
-            `<div class="card" id="${element.id}">
-      <h2 class="movieName">${element.data.name}</h2>
+            `<div class="card" id="${film.id}">
+      <h2 class="movieName">${film.data.name}</h2>
       <img
-        src="${questionMark}"
+        
       />`
           );
         } else {
           DOMSelectors.cards.insertAdjacentHTML(
             "beforeend",
-            `<div class="card" id="${element.id}">
-      <h2 class="movieName">${element.data.name}</h2>
+            `<div class="card" id="${film.id}">
+      <h2 class="movieName">${film.data.name}</h2>
       <img
-        src="${element.data.imageURL}"
+        src="${film.data.imageURL}"
       />
       <div class="text">`
           );
@@ -76,10 +75,10 @@ function cardGenerate(el) {
       } else {
         DOMSelectors.cards.insertAdjacentHTML(
           "beforeend",
-          `<div class="card" id="${element.id}">
-    <h2 class="sportName">${element.data.name}</h2>
+          `<div class="card" id="${film.id}">
+    <h2 class="movieName">${film.data.name}</h2>
     <img
-      src="${element.data.imageURL}"
+      src="${film.data.imageURL}"
     />
     <div class="text">`
         );
