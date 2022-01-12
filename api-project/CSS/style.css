@@ -1,0 +1,81 @@
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+:root {
+  --silver: #aabdac;
+  --green: #0bce25;
+  --solidblack: #000000;
+  --pink: #d61770;
+  --different-pink: #ff00ff;
+  --some-blue: #375acf;
+  --h1: 7.594rem;
+  --h2: 5.063rem;
+  --h3: 3.375rem;
+  --h4: 2.25rem;
+  --h5: 1.5rem;
+}
+h1 {
+  font-size: var(--h1);
+}
+h2 {
+  font-size: var(--h2);
+}
+h3 {
+  font-size: var(--h3);
+}
+h4 {
+  font-size: var(--h4);
+}
+h5 {
+  font-size: var(--h5);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-align: center;
+}
+html {
+  background-color: var(--pink);
+}
+.title {
+  background-color: var(--some-blue);
+  border-width: 1.5rem;
+  border-color: var(--solidblack);
+  text-align: center;
+  padding: 3rem;
+  color: var(--different-pink);
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  background-color: var(--green);
+  text-align: center;
+  width: 25%;
+  border-width: 1.5rem;
+  border-style: outset;
+  border-color: var(--some-blue);
+  margin: 3%;
+  max-height: 60rem;
+}
+.text {
+  padding: 1rem;
+  max-height: 30rem;
+  overflow-y: auto;
+}
+.card img {
+  margin-bottom: 10%;
+  width: inherit;
+  margin: 5%;
+  outline: var(--silver) 1rem;
+}
