@@ -16,7 +16,7 @@ body,
   --some-blue: #375acf;
   --h1: 7.594rem;
   --h2: 5.063rem;
-  --h3: 3.375rem;
+  --h3: 2rem;
   --h4: 2.25rem;
   --h5: 1.5rem;
 }
@@ -61,7 +61,7 @@ html {
 .card {
   background-color: var(--green);
   text-align: center;
-  width: 25%;
+  width: 19%;
   border-width: 1.5rem;
   border-style: outset;
   border-color: var(--some-blue);
@@ -74,8 +74,8 @@ html {
   overflow-y: auto;
 }
 .card img {
-  margin-bottom: 10%;
-  width: inherit;
+  margin-bottom: 20%;
+  width: initial;
   margin: 5%;
   outline: var(--silver) 1rem;
 }

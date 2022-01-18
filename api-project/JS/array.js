@@ -1,4 +1,4 @@
-const url = "https://sports.api.decathlon.com/sports";
+const url = "https://rickandmortyapi.com/api/character";
 
 async function getData(URL) {
   try {

@@ -5,23 +5,19 @@ const DOMSelectors = {
 };
 
 function defaultCardGenerate(el) {
-  el.data.forEach((sport) => {
-    if (sport.attributes.parent_id === null) {
-      if (sport.attributes.description != null) {
-        DOMSelectors.cards.insertAdjacentHTML(
-          "beforeend",
-          `<div class="card" id="${sport.id}">
-    <h2 class="sportName">${sport.attributes.name}</h2>
-    <img
-      src="${sport.attributes.icon}"
-    />
+  el.results.forEach((characters) => {
+    DOMSelectors.cards.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card" id="${characters.id}">
+    <h2 class="characterName">${characters.name}</h2>
+    <img src="${characters.image}"/>
     <div class="text">
+    <h3>
+    ${characters.status}</h3>
       <h3>
-        ${sport.attributes.description}
+        ${characters.origin.name}
       </h3>`
-        );
-      }
-    }
+    );
   });
   DOMSelectors.inputField.value = "";
 }
