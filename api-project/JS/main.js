@@ -2,6 +2,7 @@ import { Data } from "./array.js";
 
 const DOMSelectors = {
   cards: document.querySelector(".cards"),
+  searchbutton: document.querySelector(".myOverlay"),
 };
 
 function defaultCardGenerate(el) {
@@ -25,3 +26,13 @@ function defaultCardGenerate(el) {
 Data.then((what) => {
   defaultCardGenerate(what);
 });
+
+// Open the full screen search box
+function openSearch() {
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+// Close the full screen search box
+function closeSearch() {
+  document.getElementById("myOverlay").style.display = "none";
+}
