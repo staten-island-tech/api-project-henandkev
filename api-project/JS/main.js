@@ -2,11 +2,14 @@ import { Data } from "./array.js";
 
 const DOMSelectors = {
   cards: document.querySelector(".cards"),
-  searchbutton: document.querySelector(".myOverlay"),
+  searchBar = document.getElementById("searchBar"),
 };
 
-function defaultCardGenerate(el) {
-  el.results.forEach((characters) => {
+let filtercharacters = (Data.results)
+console.log(filtercharacters)
+
+function defaultCardGenerate(filtercharacters) {
+  filtercharacters.forEach((characters) => {
     DOMSelectors.cards.insertAdjacentHTML(
       "beforeend",
       `<div class="card" id="${characters.id}">
@@ -20,19 +23,14 @@ function defaultCardGenerate(el) {
       </h3>`
     );
   });
-  DOMSelectors.inputField.value = "";
 }
+defaultCardGenerate(filtercharacters)
 
-Data.then((what) => {
-  defaultCardGenerate(what);
-});
-
-// Open the full screen search box
-function openSearch() {
-  document.getElementById("myOverlay").style.display = "block";
-}
-
-// Close the full screen search box
-function closeSearch() {
-  document.getElementById("myOverlay").style.display = "none";
-}
+searchBar.addEventListener('keyup', (e) => {
+  const searchString = e.target.value.toLowerCase();
+  filtercharacters = el.results.filter((character) => {
+    return (
+      character.name.toLowerCase().includes(searchString) ||
+      character.status.toLowerCase().includes(searchString))})
+  cards.forEach(e => e.remove());
+})
