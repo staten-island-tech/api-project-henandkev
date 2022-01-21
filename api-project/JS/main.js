@@ -2,7 +2,7 @@ import { Data } from "./array.js";
 
 const DOMSelectors = {
   cards: document.querySelector(".cards"),
-  searchBar = document.getElementById("searchBar"),
+  search = document.getElementById("search"),
 };
 
 let filtercharacters = (Data.results)
@@ -12,25 +12,28 @@ function defaultCardGenerate(filtercharacters) {
   filtercharacters.forEach((characters) => {
     DOMSelectors.cards.insertAdjacentHTML(
       "beforeend",
-      `<div class="card" id="${characters.id}">
-    <h2 class="characterName">${characters.name}</h2>
-    <img src="${characters.image}"/>
-    <div class="text">
-    <h3>
-    ${characters.status}</h3>
-      <h3>
-        ${characters.origin.name}
-      </h3>`
+    `<div class="card" id="${characters.name}">
+        <h2 class="characterName">${characters.name}</h2>
+        <img src="${characters.image}"/>
+        <div class="text">
+        <h3>${characters.status}</h3>
+        <h3>${characters.origin.name}</h3>
+        </div>
+    </div>`
     );
   });
 }
 defaultCardGenerate(filtercharacters)
 
-searchBar.addEventListener('keyup', (e) => {
-  const searchString = e.target.value.toLowerCase();
-  filtercharacters = el.results.filter((character) => {
-    return (
-      character.name.toLowerCase().includes(searchString) ||
-      character.status.toLowerCase().includes(searchString))})
-  cards.forEach(e => e.remove());
-})
+function search(){
+    const character = document.getElementById("input").value.toLowerCase();
+    const charCards = document.getElementsByClassName("card");
+    for(i=charCards.length-1; i>=0; i--){
+      if(!charCards[i].id.includes(character)){
+        charCards[i].style.display = "none";
+      }else{ 
+        charCards[i].style.display = "";
+      }
+    }
+}
+console.log (search)
