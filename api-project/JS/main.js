@@ -1,18 +1,25 @@
-import { Data } from "./array.js";
+const url = "https://rickandmortyapi.com/api/character";
 
 const DOMSelectors = {
   cards: document.querySelector(".cards"),
-  search = document.getElementById("search"),
+  search: document.getElementById("search"),
 };
 
-let filtercharacters = (Data.results)
-console.log(filtercharacters)
+async function getData(url) {
+  try {
+    const response = await fetch(url);
+    const Data = await response.json();
+    return Data.results;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 function defaultCardGenerate(filtercharacters) {
   filtercharacters.forEach((characters) => {
     DOMSelectors.cards.insertAdjacentHTML(
       "beforeend",
-    `<div class="card" id="${characters.name}">
+      `<div class="card" id="${characters.name.toLowerCase()}">
         <h2 class="characterName">${characters.name}</h2>
         <img src="${characters.image}"/>
         <div class="text">
@@ -23,17 +30,21 @@ function defaultCardGenerate(filtercharacters) {
     );
   });
 }
-defaultCardGenerate(filtercharacters)
 
-function search(){
-    const character = document.getElementById("input").value.toLowerCase();
-    const charCards = document.getElementsByClassName("card");
-    for(i=charCards.length-1; i>=0; i--){
-      if(!charCards[i].id.includes(character)){
-        charCards[i].style.display = "none";
-      }else{ 
-        charCards[i].style.display = "";
-      }
+function search() {
+  const character = document.getElementById("input").value.toLowerCase();
+  const charCards = document.getElementsByClassName("card");
+  for (i = charCards.length - 1; i >= 0; i--) {
+    if (!charCards[i].id.includes(character)) {
+      charCards[i].style.display = "none";
+    } else {
+      charCards[i].style.display = "";
     }
+  }
 }
-console.log (search)
+
+async function main() {
+  var filtercharacters = await getData(url);
+  defaultCardGenerate(filtercharacters);
+}
+main();

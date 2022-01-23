@@ -11,4 +11,4 @@ async function getData(url) {
   }
 }
 const Data = getData(url);
-export { Data };
+export { Data.results };

@@ -11,10 +11,24 @@
       <h1>Random Rick and Morty Characters!</h1>
     </section>
     <div id="searchWrapper">
-      <input type="text" placeholder="Search for a character" autocomplete="off" onkeyup="search()">
+      <input id="input" type="text" placeholder="Search for a character" autocomplete="off" onkeyup="search()">
   </div>
     <section class="cards"></section>
     <script type="module" src="/js/main.js"></script>
+    <script>
+    async function search() {
+    const character = await document.getElementById("input").value.toLowerCase();
+    const charCards = await document.getElementsByClassName("card");
+    for (i = charCards.length - 1; i >= 0; i--) {
+      console.log(charCards)[i]
+      if (!charCards[i].id.includes(character)) {
+        charCards[i].style.display = "none";
+      } else {
+        charCards[i].style.display = "";
+      } 
+    }
+  }
+    </script>
   </body>
 </html>
 1`
