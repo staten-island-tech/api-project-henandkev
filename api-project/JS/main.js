@@ -19,7 +19,7 @@ function defaultCardGenerate(filtercharacters) {
   filtercharacters.forEach((characters) => {
     DOMSelectors.cards.insertAdjacentHTML(
       "beforeend",
-      `<div class="card" id="${characters.name.toLowerCase()}">
+      `<div class="card" id="${characters.name.toLowerCase().replace(/ /g,'')}">
         <h2 class="characterName">${characters.name}</h2>
         <img src="${characters.image}"/>
         <div class="text">
@@ -29,18 +29,6 @@ function defaultCardGenerate(filtercharacters) {
     </div>`
     );
   });
-}
-
-function search() {
-  const character = document.getElementById("input").value.toLowerCase();
-  const charCards = document.getElementsByClassName("card");
-  for (i = charCards.length - 1; i >= 0; i--) {
-    if (!charCards[i].id.includes(character)) {
-      charCards[i].style.display = "none";
-    } else {
-      charCards[i].style.display = "";
-    }
-  }
 }
 
 async function main() {

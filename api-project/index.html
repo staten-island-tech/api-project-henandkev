@@ -19,8 +19,7 @@
     async function search() {
     const character = await document.getElementById("input").value.toLowerCase();
     const charCards = await document.getElementsByClassName("card");
-    for (i = charCards.length - 1; i >= 0; i--) {
-      console.log(charCards)[i]
+    for (var i = charCards.length - 1; i >= 0; i--) {
       if (!charCards[i].id.includes(character)) {
         charCards[i].style.display = "none";
       } else {
@@ -31,4 +30,3 @@
     </script>
   </body>
 </html>
-1`
