@@ -19,9 +19,11 @@ function defaultCardGenerate(filtercharacters) {
   filtercharacters.forEach((characters) => {
     DOMSelectors.cards.insertAdjacentHTML(
       "beforeend",
-      `<div class="card" id="${characters.name.toLowerCase().replace(/ /g,'')}">
+      `<div class="card" id="${characters.name
+        .toLowerCase()
+        .replace(/ /g, "")}">
         <h2 class="characterName">${characters.name}</h2>
-        <img src="${characters.image}"/>
+        <img class="img" src="${characters.image}"/>
         <div class="text">
         <h3>${characters.status}</h3>
         <h3>${characters.origin.name}</h3>

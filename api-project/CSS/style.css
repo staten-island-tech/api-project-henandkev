@@ -43,8 +43,10 @@ h5 {
   text-align: center;
 }
 #input {
-  width: 30%;
-  height: 2rem;
+  width: 70%;
+  height: 4rem;
+  font-size: 24px;
+  background-color: var(--silver);
 }
 html {
   background-color: var(--pink);
@@ -65,7 +67,7 @@ html {
 .card {
   background-color: var(--green);
   text-align: center;
-  width: 19%;
+  width: 40%;
   border-width: 1.5rem;
   border-style: outset;
   border-color: var(--some-blue);
@@ -83,84 +85,29 @@ html {
   margin: 5%;
   outline: var(--silver) 1rem;
 }
-
-/* The overlay effect with black background */
-.overlay {
-  height: 100%;
-  width: 100%;
-  display: none;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.9
-  ); /* Black with a little bit see-through */
+@media (width: 1170px) and (height: 2532px) {
+  .img {
+    height: 30rem;
+    width: 30rem;
+  }
 }
-
-/* The content */
-.overlay-content {
-  position: relative;
-  top: 46%;
-  width: 80%;
-  text-align: center;
-  margin-top: 30px;
-  margin: auto;
+@media (width: 768px) and (height: 1024px) {
+  .img {
+    height: 30rem;
+    width: 20rem;
+  }
 }
-
-/* Close button */
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
-  cursor: pointer;
-  color: white;
+@media (width: 1920px) and (height: 1080px) {
+  .img {
+    height: 30rem;
+    width: 30rem;
+  }
 }
-
-.overlay .closebtn:hover {
-  color: #ccc;
+@media (max-width: 1024px) {
 }
-
-/* Style the search field */
-.overlay input[type="text"] {
-  padding: 15px;
-  font-size: 17px;
-  border: none;
-  float: left;
-  width: 80%;
-  background: white;
+@media (max-width: 768px) {
 }
-
-.overlay input[type="text"]:hover {
-  background: #f1f1f1;
-}
-
-/* Style the submit button */
-.overlay button {
-  float: left;
-  width: 20%;
-  padding: 25px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-.overlay button:hover {
-  background: #bbb;
-}
-#searchBar {
-  width: 100%;
-  height: 32px;
-  border-radius: 3px;
-  border: 1px solid #eaeaea;
-  padding: 10px 10px;
-  font-size: 12px;
+@media (max-width: 600px) {
 }
 
 #searchWrapper {
