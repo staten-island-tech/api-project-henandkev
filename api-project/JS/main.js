@@ -1,3 +1,4 @@
+import "../CSS/style.css";
 const url = "https://rickandmortyapi.com/api/character";
 
 const DOMSelectors = {
